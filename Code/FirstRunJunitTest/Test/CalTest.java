@@ -2,16 +2,12 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class CalTest {
+class CalTest extends Cal {
 
     @Test
-    void testSum(){
-        var cal = new Cal<>(5f, 4f);
-        var numA = cal.getNumA();
-        var numB = cal.getNumB();
+    void testPlus() {
+        var result = new Cal(5, 4).plus();
         var expected = 9;
-        var result = numA + numB;
         assertEquals(expected, result);
     }
-
 }

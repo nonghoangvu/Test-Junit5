@@ -1,25 +1,32 @@
-public class Cal<T extends Number>  {
-    private T numA;
-    private T numB;
+public class Cal {
+    private int numberA;
+    private int numberB;
 
-    public Cal(T numA, T numB) {
-        this.numA = numA;
-        this.numB = numB;
+    public Cal() {
     }
 
-    public T getNumA() {
-        return numA;
+    public Cal(int numberA, int numberB) {
+        this.numberA = numberA;
+        this.numberB = numberB;
     }
 
-    public void setNumA(T numA) {
-        this.numA = numA;
+    public int getNumberA() {
+        return numberA;
     }
 
-    public T getNumB() {
-        return numB;
+    public void setNumberA(int numberA) {
+        this.numberA = numberA;
     }
 
-    public void setNumB(T numB) {
-        this.numB = numB;
+    public int getNumberB() {
+        return numberB;
+    }
+
+    public void setNumberB(int numberB) {
+        this.numberB = numberB;
+    }
+
+    public int plus() {
+        return this.numberA + this.numberB;
     }
 }
