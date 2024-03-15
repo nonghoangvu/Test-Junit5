@@ -12,6 +12,6 @@ public class LoginTest {
         HashMap<String, String> account = new HashMap<>();
         account.put("Admin", "123");
         String expected = "Login successfully";
-        Assert.assertEquals(expected, new Login().loginTo(account, "Admins", "123"));
+        Assert.assertEquals(expected, new Login().loginTo(account, "Admin", "123"));
     }
 }
