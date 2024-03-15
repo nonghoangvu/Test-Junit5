@@ -6,36 +6,36 @@ import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class CalTest {
+class MethodTest {
     @Test
     public void testSumFirst(){
-        assertEquals(10, Cal.sumNumber(5, 5));
+        assertEquals(10, Method.sumNumber(5, 5));
     }
 
     @Test
     public void testSumSecond(){
-        assertEquals(8, Cal.sumNumber(3, 5));
+        assertEquals(8, Method.sumNumber(3, 5));
     }
 
     @Test
     public void testSumThird() {
-        assertEquals(0, Cal.sumNumber(Integer.parseInt("5abc"), 5));
+        assertEquals(0, Method.sumNumber(Integer.parseInt("5abc"), 5));
     }
 
     //----------------------------------------------------------------
     @Test
     public void testDivFirst(){
-        assertEquals(1, Cal.divNumber(5, 5));
+        assertEquals(1, Method.divNumber(5, 5));
     }
 
     @Test
     public void testDivSecond(){
-        assertEquals(0.6000000238418579, Cal.divNumber(3, 5));
+        assertEquals(0.6000000238418579, Method.divNumber(3, 5));
     }
 
     @Test
     public void testDivThird(){
-        assertEquals(-1, Cal.divNumber(5, 0));
+        assertEquals(-1, Method.divNumber(5, 0));
     }
 
     //----------------------------------------------------------------
@@ -45,12 +45,12 @@ class CalTest {
         numbers.add(1);
         numbers.add(2);
         numbers.add(3);
-        assertEquals(2, Cal.calculateAverage(numbers));
+        assertEquals(2, Method.calculateAverage(numbers));
     }
     @Test
     public void testAverageSecond(){//List number is empty
         ArrayList<Integer> numbers = new ArrayList<>();
-        assertEquals(0, Cal.calculateAverage(numbers));
+        assertEquals(0, Method.calculateAverage(numbers));
     }
 
     @Test
@@ -60,7 +60,7 @@ class CalTest {
         numbers.add(2);
         numbers.add(0);
         numbers.add(3);
-        assertEquals(0, Cal.calculateAverage(numbers));
+        assertEquals(0, Method.calculateAverage(numbers));
     }
 
     //----------------------------------------------------------------
@@ -68,33 +68,33 @@ class CalTest {
     public void testGetElementAtIndexFirst(){
         int[] array = {1, 2, 3, 4, 5};
         int index = 2;
-        assertEquals(3, Cal.getElementAtIndex(array, index));
+        assertEquals(3, Method.getElementAtIndex(array, index));
     }
 
     @Test
     public void testGetElementAtIndexSecond(){
         int[] array = {1, 2, 3, 4, 5};
         int index = -1;
-        assertEquals(3, Cal.getElementAtIndex(array, index));
+        assertEquals(3, Method.getElementAtIndex(array, index));
     }
 
     @Test
     public void testGetElementAtIndexThird(){
         int[] array = {1, 2, 3, 4, 5};
         int index = 5;
-        assertEquals(3, Cal.getElementAtIndex(array, index));
+        assertEquals(3, Method.getElementAtIndex(array, index));
     }
 
     //----------------------------------------------------------------
     @Test
     public void testGetNameFirst(){
-        Cal user = new Cal(null);
+        Method user = new Method(null);
         assertEquals("Not found", user.getName());
     }
 
     @Test
     public void testGetNameSecond(){
-        Cal user = new Cal("Vu");
+        Method user = new Method("Vu");
         assertEquals("Vu", user.getName());
     }
 }
