@@ -3,17 +3,19 @@ package com.vunh.Service;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class MethodTest {
     @Test
-    public void testSumFirst(){
+    public void testSumFirst() {
         assertEquals(10, Method.sumNumber(5, 5));
     }
 
     @Test
-    public void testSumSecond(){
+    public void testSumSecond() {
         assertEquals(8, Method.sumNumber(3, 5));
     }
 
@@ -24,62 +26,56 @@ class MethodTest {
 
     //----------------------------------------------------------------
     @Test
-    public void testDivFirst(){
+    public void testDivFirst() {
         assertEquals(1, Method.divNumber(5, 5));
     }
 
     @Test
-    public void testDivSecond(){
+    public void testDivSecond() {
         assertEquals(0.6000000238418579, Method.divNumber(3, 5));
     }
 
     @Test
-    public void testDivThird(){
+    public void testDivThird() {
         assertEquals(-1, Method.divNumber(5, 0));
     }
 
     //----------------------------------------------------------------
     @Test
-    public void testAverageFirst(){
-        ArrayList<Integer> numbers = new ArrayList<>();
-        numbers.add(1);
-        numbers.add(2);
-        numbers.add(3);
+    public void testAverageFirst() {
+        List<Integer> numbers = Arrays.asList(1, 2, 3);
         assertEquals(2, Method.calculateAverage(numbers));
     }
+
     @Test
-    public void testAverageSecond(){//List number is empty
-        ArrayList<Integer> numbers = new ArrayList<>();
+    public void testAverageSecond() {//List number is empty
+        List<Integer> numbers = new ArrayList<>();
         assertEquals(0, Method.calculateAverage(numbers));
     }
 
     @Test
-    public void testAverageThird(){//Calculate average with zero in the list.
-        ArrayList<Integer> numbers = new ArrayList<>();
-        numbers.add(1);
-        numbers.add(2);
-        numbers.add(0);
-        numbers.add(3);
+    public void testAverageThird() {//Calculate average with zero in the list.
+        List<Integer> numbers = Arrays.asList(1, 2, 0, 3);
         assertEquals(0, Method.calculateAverage(numbers));
     }
 
     //----------------------------------------------------------------
     @Test
-    public void testGetElementAtIndexFirst(){
+    public void testGetElementAtIndexFirst() {
         int[] array = {1, 2, 3, 4, 5};
         int index = 2;
         assertEquals(3, Method.getElementAtIndex(array, index));
     }
 
     @Test
-    public void testGetElementAtIndexSecond(){
+    public void testGetElementAtIndexSecond() {
         int[] array = {1, 2, 3, 4, 5};
         int index = -1;
         assertEquals(3, Method.getElementAtIndex(array, index));
     }
 
     @Test
-    public void testGetElementAtIndexThird(){
+    public void testGetElementAtIndexThird() {
         int[] array = {1, 2, 3, 4, 5};
         int index = 5;
         assertEquals(3, Method.getElementAtIndex(array, index));
@@ -87,14 +83,14 @@ class MethodTest {
 
     //----------------------------------------------------------------
     @Test
-    public void testGetNameFirst(){
+    public void testGetNameFirst() {
         Method user = new Method(null);
         assertEquals("Not found", user.getName());
     }
 
     @Test
-    public void testGetNameSecond(){
-        Method user = new Method("Vu");
-        assertEquals("Vu", user.getName());
+    public void testGetNameSecond() {
+        Method user = new Method("Nong Hoang Vu");
+        assertEquals("Nong Hoang Vu", user.getName());
     }
 }

@@ -3,6 +3,7 @@ package com.vunh.Service;
 import lombok.AllArgsConstructor;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.OptionalDouble;
 
 @AllArgsConstructor
@@ -28,7 +29,7 @@ public class Method {
         }
     }
 
-    public static double calculateAverage(ArrayList<Integer> numbers) {
+    public static double calculateAverage(List<Integer> numbers) {
         if (numbers.isEmpty()) {
             throw new ArithmeticException("Cannot calculate average of an empty list.");
         } else if (numbers.contains(0)) {
