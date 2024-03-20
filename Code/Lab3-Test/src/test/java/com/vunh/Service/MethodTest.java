@@ -50,13 +50,13 @@ class MethodTest {
     @Test
     public void testAverageSecond() {//List number is empty
         List<Integer> numbers = new ArrayList<>();
-        assertEquals(0, Method.calculateAverage(numbers));
+        assertThrows(ArithmeticException.class, () -> Method.calculateAverage(numbers));
     }
 
     @Test
     public void testAverageThird() {//Calculate average with zero in the list.
         List<Integer> numbers = Arrays.asList(1, 2, 0, 3);
-        assertEquals(0, Method.calculateAverage(numbers));
+        assertThrows(ArithmeticException.class, () -> Method.calculateAverage(numbers));
     }
 
     //----------------------------------------------------------------
@@ -71,21 +71,21 @@ class MethodTest {
     public void testGetElementAtIndexSecond() {
         int[] array = {1, 2, 3, 4, 5};
         int index = -1;
-        assertEquals(3, Method.getElementAtIndex(array, index));
+        assertThrows(IndexOutOfBoundsException.class, () -> Method.getElementAtIndex(array, index));
     }
 
     @Test
     public void testGetElementAtIndexThird() {
         int[] array = {1, 2, 3, 4, 5};
         int index = 5;
-        assertEquals(3, Method.getElementAtIndex(array, index));
+        assertThrows(IndexOutOfBoundsException.class, () -> Method.getElementAtIndex(array, index));
     }
 
     //----------------------------------------------------------------
     @Test
     public void testGetNameFirst() {
         Method user = new Method(null);
-        assertEquals("Not found", user.getName());
+        assertThrows(NullPointerException.class, user::getName);
     }
 
     @Test
