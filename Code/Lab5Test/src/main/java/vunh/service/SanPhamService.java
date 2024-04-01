@@ -1,11 +1,13 @@
 package vunh.service;
 
+import lombok.Getter;
 import vunh.entities.SanPham;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
+@Getter
 public class SanPhamService {
     private List<SanPham> list;
 
@@ -17,7 +19,9 @@ public class SanPhamService {
     }
 
     public Boolean add(SanPham sp) {
-        if (!sp.getMaSanPham().startsWith("SP")) {
+        if (sp.getId().isBlank() || sp.getId().length() > 5) {
+            throw new IllegalArgumentException("Invalid product ID!");
+        } else if ((!sp.getMaSanPham().startsWith("SP")) || sp.getMaSanPham().length() < 3 || sp.getMaSanPham().length() > 6) {
             throw new IllegalArgumentException("Invalid product code!");
         } else if (sp.getSoLuong() < 0 || sp.getSoLuong() > 100) {
             throw new IllegalArgumentException("Invalid quantity!");

@@ -17,7 +17,7 @@ class SanPhamServiceTest {
     }
 
     @Test
-    void testAddSecond() { //Invalid quantity!
+    void testAddSecond() { //Invalid quantity! - quantity greater than 100
         SanPham sp = new SanPham("4", "SP004", "Product 4", 25.0f, "Red", "Large", 101);
         assertThrows(IllegalArgumentException.class, () -> this.list.add(sp));
     }
@@ -42,19 +42,19 @@ class SanPhamServiceTest {
     }
 
     @Test
-    void testUpdateThird() { //Product code already exists
-        SanPham sp = new SanPham("2", "SP002", "Product 4", 25.0f, "Red", "Large", 54);
-        assertThrows(IllegalArgumentException.class, () -> this.list.update(sp));
+    void testUpdateThird() { //Product code is null
+        SanPham sp = new SanPham("2", null, "Product 4", 25.0f, "Red", "Large", 54);
+        assertEquals(false, this.list.update(sp));
     }
 
     @Test
-    void testUpdateFourth() { //Invalid quantity!
-        SanPham sp = new SanPham("2", "SP004", "Product 4", 25.0f, "Red", "Large", 101);
-        assertThrows(IllegalArgumentException.class, () -> this.list.update(sp));
+    void testUpdateFourth() { //Price is negative!
+        SanPham sp = new SanPham("2", "SP004", "Product 4", -25.0f, "Red", "Large", 60);
+        assertFalse(this.list.update(sp));
     }
 
     @Test
-    void testUpdateFifth() { //The code not start with SP
+    void testUpdateFifth() { //The product code don't start with SP
         SanPham sp = new SanPham("2", "AB004", "Product 4", 25.0f, "Red", "Large", 101);
         assertThrows(IllegalArgumentException.class, () -> this.list.update(sp));
     }
